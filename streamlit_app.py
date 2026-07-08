@@ -16,10 +16,10 @@ st.set_page_config(
 page_styles = """
 <style>
 body {
-    background: linear-gradient(135deg, #eef2ff 0%, #fdf2f8 45%, #ffffff 100%);
+    background: linear-gradient(135deg, #eef2ff 0%, #fdf2f8 40%, #ffffff 100%);
 }
 section.main {
-    background: rgba(255,255,255,0.92) !important;
+    background: rgba(255,255,255,0.94) !important;
     border-radius: 30px;
     box-shadow: 0 30px 70px rgba(15, 23, 42, 0.08);
     padding: 2rem 2.5rem 2.5rem;
@@ -28,9 +28,9 @@ header.block-container {
     padding-top: 1rem;
 }
 .stTextArea>div>div>textarea {
-    min-height: 220px;
+    min-height: 200px;
     border-radius: 22px;
-    border: 1px solid rgba(148, 163, 184, 0.25);
+    border: 1px solid rgba(148, 163, 184, 0.24);
     background: rgba(255, 255, 255, 0.95);
     box-shadow: inset 0 18px 30px rgba(15, 23, 42, 0.04);
     font-size: 1rem;
@@ -51,7 +51,7 @@ header.block-container {
 .card {
     border-radius: 28px;
     padding: 1.6rem;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     border: 1px solid rgba(148, 163, 184, 0.14);
     box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
     margin-bottom: 1.2rem;
@@ -79,8 +79,16 @@ header.block-container {
 .glow-1 { width: 260px; height: 260px; background: #c7d2fe; top: -80px; left: -80px; }
 .glow-2 { width: 220px; height: 220px; background: #fbcfe8; top: 40px; right: -100px; }
 .glow-3 { width: 320px; height: 320px; background: #a7f3d0; bottom: -100px; right: 40px; }
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .glow { display: none; }
+    section.main { padding: 1.5rem 1.5rem 2rem; }
+    .stTextArea>div>div>textarea { min-height: 180px; }
+}
+@media (max-width: 760px) {
+    section.main { padding: 1.25rem 1rem 1.5rem; }
+    .stButton button { width: 100%; }
+    .card { padding: 1.3rem; }
+    .badge { font-size: 0.95rem; }
 }
 </style>
 """
@@ -95,8 +103,8 @@ st.markdown(
       <div class='glow glow-3'></div>
       <div style='position: relative; z-index: 1;'>
         <p style='color: #4338ca; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 0.08em;'>LEARNING SUPPORT DASHBOARD</p>
-        <h1 style='font-size: 3.2rem; margin: 0; line-height: 1.05; color: #0f172a;'>Emotion-aware guidance for focused study progress.</h1>
-        <p style='max-width: 680px; color: #475569; margin-top: 1rem; font-size: 1.05rem;'>Analyze how the learner feels, get tailored next steps, and compare models with a clean, modern interface built for educators and self-directed students.</p>
+        <h1 style='font-size: clamp(2.4rem, 3.8vw, 3.8rem); margin: 0; line-height: 1.05; color: #0f172a;'>Emotion-aware guidance for focused study progress.</h1>
+        <p style='max-width: 720px; color: #475569; margin-top: 1rem; font-size: 1.02rem;'>Analyze how the learner feels, get tailored next steps, and compare models with a clean, modern interface built for educators and self-directed students.</p>
       </div>
     </div>
     """,
