@@ -16,10 +16,13 @@ A Streamlit app that turns a learner's free-text study challenge into an emotion
    ```bash
    pip install -r requirements.txt
    ```
-3. Run the app:
+3. Run the local Streamlit app:
    ```bash
-   streamlit run app.py
+   streamlit run streamlit_app.py
    ```
+
+## Vercel Deployment
+The Vercel function entrypoint is `api/index.py`.
 
 ## Testing
 Run the regression tests with:
