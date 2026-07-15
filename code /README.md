@@ -9,25 +9,48 @@ An intelligent, emotion-aware learning support system that transforms student fr
 
 ---
 
+## Table of Contents
+
+- [Project Overview](#-project-overview)
+- [Key Features](#-key-features)
+- [Media & Previews](#️-media--previews)
+- [Technology Stack](#️-technology-stack)
+- [System Architecture](#️-system-architecture)
+- [Folder Structure](#-folder-structure)
+- [Installation & Setup](#-installation--setup)
+- [Configuration & Environment Variables](#️-configuration--environment-variables)
+- [Execution Guide](#-execution-guide)
+- [Testing Protocol](#-testing-protocol)
+- [Example Usage](#-example-usage)
+- [Assumptions & Limitations](#-assumptions--limitations)
+- [Contributors](#-contributors)
+- [License](#-license)
+
+---
+
 ## 📌 Project Overview
 
 ### Problem Statement
-When students face obstacles during self-paced or online learning, their emotional states heavily influence their cognitive capacity to process information. Traditional Learning Management Systems (LMS) treat text inputs statically but fail to account for the student's affective state (such as frustration, boredom, or confusion). Without immediate, emotionally grounded intervention, learners are highly prone to disengagement, academic burnout, or complete abandonment of the learning material.
+
+When students face obstacles during self-paced or online learning, their emotional state heavily influences their cognitive capacity to process information. Traditional Learning Management Systems (LMS) treat text inputs statically and fail to account for a student's affective state — such as frustration, boredom, or confusion. Without immediate, emotionally grounded intervention, learners are highly prone to disengagement, academic burnout, or complete abandonment of the learning material.
 
 ### Solution
-The **Emotion Detection & Learning Support Platform** serves as an empathetic middleware. It accepts natural-language study challenges written by users, classifies their core emotional states—specifically **Confused, Curious, Frustrated, Bored, and Confident**—and maps these metrics to responsive support strategies. Featuring mixed-emotion profiling and a side-by-side comparative architectural view (BiLSTM vs. BERT-style modeling), it equips educators and platforms with deep insights into learner psychology while logging behavioral metrics for administrative overview.
+
+The **Emotion Detection & Learning Support Platform** serves as an empathetic middleware layer. It accepts natural-language study challenges written by users, classifies their core emotional state — specifically **Confused, Curious, Frustrated, Bored, and Confident** — and maps these signals to responsive support strategies. With mixed-emotion profiling and a side-by-side comparative architectural view (BiLSTM vs. BERT-style modeling), it gives educators and platforms deep insight into learner psychology while logging behavioral metrics for administrative review.
 
 ---
 
 ## ✨ Key Features
 
-*   **Affective Classification Engine:** Evaluates free-text inputs for 5 pivotal emotional states: *Confused, Curious, Frustrated, Bored, and Confident*.
-*   **Mixed-Emotion Analytics:** Provides granular confidence scoring alongside multi-faceted emotion distribution metrics.
-*   **Tailored Pedagogical Strategies:** Outputs dynamic guidance based on the predominant emotional profile detected.
-*   **Model Comparison Matrix:** Displays side-by-side inference analytics tracking performance profiles (BiLSTM vs. BERT architectural constructs).
-*   **Operational Logs:** Automatically records user sessions, classifications, and responses into local CSV files for auditable training or behavior reviews.
-*   **Analytics Dashboard:** Embedded visual metrics tracking aggregated interaction trends and frequent blocker states over time.
-*   **Hybrid Deployment Matrix:** Ready-to-go architecture matching local Streamlit dashboard executions with serverless microservice hosting on Vercel.
+| Feature | Description |
+| :--- | :--- |
+| **Affective Classification Engine** | Evaluates free-text input across 5 core emotional states: *Confused, Curious, Frustrated, Bored,* and *Confident*. |
+| **Mixed-Emotion Analytics** | Provides granular confidence scoring alongside multi-faceted emotion distribution metrics. |
+| **Tailored Pedagogical Strategies** | Outputs dynamic guidance based on the predominant emotional profile detected. |
+| **Model Comparison Matrix** | Displays side-by-side inference analytics tracking performance profiles (BiLSTM vs. BERT-style). |
+| **Operational Logs** | Automatically records user sessions, classifications, and responses into local CSV files for auditable review. |
+| **Analytics Dashboard** | Embedded visual metrics tracking aggregated interaction trends and frequent blocker states over time. |
+| **Hybrid Deployment** | Ready-to-go architecture supporting both local Streamlit dashboard execution and serverless hosting on Vercel. |
 
 ---
 
@@ -35,198 +58,247 @@ The **Emotion Detection & Learning Support Platform** serves as an empathetic mi
 
 ### Dashboard Preview
 
-+-----------------------------------------------------------------+
-|  🧠 EMOTION DETECTION & LEARNING SUPPORT ENGINE                 |
-+-----------------------------------------------------------------+
-|                                                                 |
-|  [ Enter your study challenge...                             ]  |
-|  "I've been trying to understand recursion for hours and I'm    |
-|   about to give up. Nothing makes sense anymore."               |
-|                                                                 |
-|  +---------------------------+   +----------------------------+ |
-|  | DETECTED EMOTION          |   | RECOMMENDED STRATEGY       | |
-|  | > FRUSTRATED (84%)        |   | > Break the task into tiny | |
-|  | > CONFUSED (12%)          |   |   sub-goals. Take a 5-min  | |
-|  |                           |   |   breather.                | |
-|  +---------------------------+   +----------------------------+ |
-|                                                                 |
-|  📊 Model Architect Comparison                                  |
-|  +---------------------------+--------------------------------+ |
-|  | BiLSTM Confidence: 82.1%  | BERT-Style Confidence: 85.4%   | |
-|  +---------------------------+--------------------------------+ |
-+-----------------------------------------------------------------+
-
+```
++-------------------------------------------------------------------+
+|  🧠 EMOTION DETECTION & LEARNING SUPPORT ENGINE                   |
++-------------------------------------------------------------------+
+|                                                                   |
+|  [ Enter your study challenge...                               ]  |
+|  "I've been trying to understand recursion for hours and I'm      |
+|   about to give up. Nothing makes sense anymore."                 |
+|                                                                   |
+|  +---------------------------+   +----------------------------+   |
+|  | DETECTED EMOTION          |   | RECOMMENDED STRATEGY        |  |
+|  | > FRUSTRATED (84%)        |   | > Break the task into tiny  |  |
+|  | > CONFUSED (12%)          |   |   sub-goals. Take a 5-min   |  |
+|  |                           |   |   breather.                 |  |
+|  +---------------------------+   +----------------------------+   |
+|                                                                   |
+|  📊 Model Architecture Comparison                                 |
+|  +---------------------------+---------------------------------+  |
+|  | BiLSTM Confidence: 82.1%  | BERT-Style Confidence: 85.4%    |  |
+|  +---------------------------+---------------------------------+  |
++-------------------------------------------------------------------+
+```
 
 ### System Walkthrough
-An walkthrough video demonstrating the live application execution is available in the repository root:
-*   [Emotion detection system.mp4](./Emotion%20detection%20system.mp4)
+
+A walkthrough video demonstrating the live application is available in the repository root:
+[`Emotion detection system.mp4`](./Emotion%20detection%20system.mp4)
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Category | Technology / Library | Usage Profile |
+| Category | Technology / Library | Usage |
 | :--- | :--- | :--- |
-| **Frontend UI** | Streamlit | Analytical dashboard interface and interactive text playgrounds |
-| **API Deployment**| Vercel / WSGI | Serverless production host wrapper (`api/index.py`) |
-| **Data Orchestration**| Pandas | Interfacing, structured metric calculation, and operational log mutations |
-| **Testing Architecture**| Pytest | Automated regression suites and validation checks |
-| **LLM Integration** | Gemini Flash API *(Optional)* | Generative orchestration for fluid, hyper-personalized support prompts |
+| **Frontend UI** | Streamlit | Analytical dashboard interface and interactive text playground |
+| **API Deployment** | Vercel / WSGI | Serverless production host wrapper (`api/index.py`) |
+| **Data Orchestration** | Pandas | Data interfacing, structured metric calculation, and log mutations |
+| **Testing** | Pytest | Automated regression suites and validation checks |
+| **LLM Integration** *(optional)* | Gemini Flash API | Generative orchestration for fluid, hyper-personalized support prompts |
 
 ---
 
 ## 🏗️ System Architecture
 
-[ User Text Input: Study Challenge ]
-                              │
-                              ▼
-                 [ Core Processing Layer ]
-          ┌───────────────────┴───────────────────┐
-          ▼                                       ▼
-[ Model Architecture A ]                [ Model Architecture B ]
-      (BiLSTM)                               (BERT-Style)
-          │                                       │
-          └───────────────────┬───────────────────┘
-                              ▼
-                 [ Combined Emotion Scoring ]
-          (Confused / Frustrated / Bored / Curious / Confident)
-                              │
-                              ▼
-            [ Pedagogical Strategy Router ]
-        ┌─────────────────────┴─────────────────────┐
-        ▼                                           ▼
-        [ Local Policy Mapping ]                   [ LLM Gen-AI Pipeline ]
-(Static Strategy Framework)                 (Gemini-1.5-Flash Engine)
-│                                           │
-└─────────────────────┬─────────────────────┘
-▼
-[ Final Supportive Output UI ]
-│
-┌─────────────┴─────────────┐
-▼                           ▼
-[ Local CSV Data Logging ]    [ Historical Analytics ]
+```
+                     [ User Text Input: Study Challenge ]
+                                    │
+                                    ▼
+                       [ Core Processing Layer ]
+              ┌─────────────────────┴─────────────────────┐
+              ▼                                            ▼
+    [ Model Architecture A ]                    [ Model Architecture B ]
+          (BiLSTM)                                    (BERT-Style)
+              │                                            │
+              └─────────────────────┬─────────────────────┘
+                                    ▼
+                       [ Combined Emotion Scoring ]
+              (Confused / Frustrated / Bored / Curious / Confident)
+                                    │
+                                    ▼
+                    [ Pedagogical Strategy Router ]
+              ┌─────────────────────┴─────────────────────┐
+              ▼                                            ▼
+    [ Local Policy Mapping ]                     [ LLM Gen-AI Pipeline ]
+    (Static Strategy Framework)                  (Gemini 1.5 Flash Engine)
+              │                                            │
+              └─────────────────────┬─────────────────────┘
+                                    ▼
+                     [ Final Supportive Output UI ]
+                                    │
+              ┌─────────────────────┴─────────────────────┐
+              ▼                                            ▼
+    [ Local CSV Data Logging ]                  [ Historical Analytics ]
+```
 
 ---
 
 ## 📂 Folder Structure
 
+```
 code/
 ├── .gitignore               # System, cache, and log exclusion definitions
 ├── README.md                # Comprehensive documentation
 ├── app.py                   # Central server hook & routing configuration
 ├── requirements.txt         # Core project environment declarations
 ├── streamlit_app.py         # Main analytical dashboard execution script
-├── vercel.json              # Serverless platform target configuration
+├── vercel.json               # Serverless platform target configuration
 ├── api/
-│   └── index.py             # Vercel function edge-entrypoint implementation
-├── docs/                    # Contextual architectural definitions and design logs
-├── src/                     # Core internal application source logic
-└── tests/                   # Automated test scripts and regression configurations
+│   └── index.py              # Vercel function edge-entrypoint implementation
+├── docs/                     # Contextual architectural definitions and design logs
+├── src/                       # Core internal application source logic
+└── tests/                    # Automated test scripts and regression configurations
+```
 
 ---
 
 ## 🚀 Installation & Setup
 
 ### Prerequisites
-*   Python **3.9** or higher installed locally.
-*   `pip` package manager configured within your system environment path.
 
-### 1. Clone & Environment Set Up
-Open a terminal in your project directory and execute:
+- Python **3.9** or higher installed locally
+- `pip` package manager configured on your system PATH
+
+### 1. Clone & Set Up the Environment
+
 ```bash
-# Clone the repository (if not already local)
-git clone [https://github.com/venkateshmalakala/Emotion-Detection-Learning-Support-Engine.git](https://github.com/venkateshmalakala/Emotion-Detection-Learning-Support-Engine.git)
+# Clone the repository
+git clone https://github.com/venkateshmalakala/Emotion-Detection-Learning-Support-Engine.git
 cd Emotion-Detection-Learning-Support-Engine/code
 
-# Set up a clean isolated virtual environment
+# Set up a clean, isolated virtual environment
 python -m venv venv
 
 # Activate the environment
-# On macOS/Linux:
+# macOS/Linux:
 source venv/bin/activate
-# On Windows (Command Prompt):
+# Windows (Command Prompt):
 venv\Scripts\activate
-# On Windows (PowerShell):
+# Windows (PowerShell):
 .\venv\Scripts\Activate.ps1
+```
 
-2. Dependency Installation
-Execute the following to download the framework packages and models required for local processing:
+### 2. Install Dependencies
 
-Bash
+```bash
 pip install -r requirements.txt
+```
 
-⚙️ Configuration & Environment Variables
-The platform runs out of the box using local rule-based strategy mappings. To enable high-fidelity, dynamic responses via Generative AI, set up the following optional environment variables:
+---
 
-Linux / macOS (Bash/Zsh)
-Bash
+## ⚙️ Configuration & Environment Variables
+
+The platform runs out of the box using local, rule-based strategy mappings. To enable high-fidelity, dynamic responses via generative AI, set the following optional environment variables.
+
+**Linux / macOS (Bash/Zsh)**
+```bash
 export GEMINI_API_KEY="your_api_key_here"
 export GEMINI_MODEL="gemini-1.5-flash"
+```
 
-Windows (Command Prompt)
-DOS
+**Windows (Command Prompt)**
+```cmd
 set GEMINI_API_KEY="your_api_key_here"
 set GEMINI_MODEL="gemini-1.5-flash"
-Windows (PowerShell)
-PowerShell
+```
+
+**Windows (PowerShell)**
+```powershell
 $env:GEMINI_API_KEY="your_api_key_here"
 $env:GEMINI_MODEL="gemini-1.5-flash"
+```
 
-🖥️ Execution Guide
-Local Interactive Dashboard (Streamlit)
-To review model output comparisons, mixed emotion metrics, and historical logs visually, spin up the development dashboard:
+---
 
-Bash
+## 🖥️ Execution Guide
+
+### Local Interactive Dashboard (Streamlit)
+
+To review model output comparisons, mixed-emotion metrics, and historical logs visually:
+
+```bash
 streamlit run streamlit_app.py
-Core Engine API Application
+```
+
+### Core Engine API Application
+
 To run the web-server backend API locally:
 
-Bash
+```bash
 python app.py
-Serverless Deployment (Vercel)
-The repository includes a configured vercel.json and uses the serverless function handler located in api/index.py. To deploy to production on Vercel:
+```
 
-Bash
-# Ensure you have the Vercel CLI installed globally
+### Serverless Deployment (Vercel)
+
+The repository includes a configured `vercel.json` and uses the serverless function handler located at `api/index.py`.
+
+```bash
+# Ensure the Vercel CLI is installed globally
 npm i -g vercel
 
 # Deploy directly from the project root
 vercel --prod
-🧪 Testing Protocol
-The testing framework includes regression validation suites powered by pytest to guarantee model output consistency and logical flow mappings:
+```
 
-Bash
+---
+
+## 🧪 Testing Protocol
+
+The testing framework uses regression validation suites powered by `pytest` to guarantee model output consistency and logical flow mapping.
+
+```bash
 # Run tests silently with summary output
 pytest -q
 
 # Run verbose tests to inspect structural passes
 pytest -v
-📖 Example Usage
-Input
-"I've been trying to fix this bug in my system for over 4 hours, and I'm still getting a memory allocation error. I'm completely stuck."
+```
 
-System Evaluation & Output
-────────────────────────────────────────────────────────────────────────
-[Emotion Metrics]
-• Frustrated: 🟡 78%
-• Confused:   🔵 15%
-• Confident:  ⚪ 7%
+---
 
-[Pedagogical Recommendation]
-We detect frustration levels peaking. Try taking a step away for 5 minutes. 
-Before jumping back in, write down a structured mental model or diagram of 
-how memory flows through this isolated block. Let's tackle it in segments.
-────────────────────────────────────────────────────────────────────────
+## 📖 Example Usage
 
-🔍 Assumptions & Limitations
-Model Architectures: The system references dual processing pipelines (BiLSTM & BERT-Style). In local lightweight environments, the classifiers fallback to optimized representations if GPU hardware resources are unavailable.
+**Input**
 
-External Network Dependencies: If an API key is missing or invalid, the platform safely skips LLM orchestration and falls back onto local template strategies.
+> "I've been trying to fix this bug in my system for over 4 hours, and I'm still getting a memory allocation error. I'm completely stuck."
 
-Local CSV File I/O Lockouts: The analytics subsystem uses continuous CSV logging. If the host platform restricts multi-thread file writes under heavy concurrent load, performance degradation may occur.
+**System Evaluation & Output**
 
-👥 Contributors
-Venkatesh Malakala - Lead Architect & Maintainer - @venkateshmalakala
+```
+────────────────────────────────────────────────────────────────
+ Emotion Metrics
+ • Frustrated: 🟡 78%
+ • Confused:   🔵 15%
+ • Confident:  ⚪ 7%
 
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+ Pedagogical Recommendation
+ We detect frustration levels peaking. Try taking a step away for
+ 5 minutes. Before jumping back in, write down a structured mental
+ model or diagram of how memory flows through this isolated block.
+ Let's tackle it in segments.
+────────────────────────────────────────────────────────────────
+```
+
+---
+
+## 🔍 Assumptions & Limitations
+
+- **Model Architectures:** The system references dual processing pipelines (BiLSTM & BERT-style). In lightweight local environments, the classifiers fall back to optimized representations if GPU hardware resources are unavailable.
+- **External Network Dependencies:** If an API key is missing or invalid, the platform safely skips LLM orchestration and falls back to local template strategies.
+- **Local CSV File I/O:** The analytics subsystem uses continuous CSV logging. If the host platform restricts multi-threaded file writes under heavy concurrent load, performance degradation may occur.
+
+---
+
+## 👥 Contributors
+
+| Name | Role | GitHub |
+| :--- | :--- | :--- |
+| Venkatesh Malakala | Lead Architect & Maintainer | [@venkateshmalakala](https://github.com/venkateshmalakala) |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.
