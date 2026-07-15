@@ -154,3 +154,79 @@ Execute the following to download the framework packages and models required for
 
 Bash
 pip install -r requirements.txt
+
+⚙️ Configuration & Environment Variables
+The platform runs out of the box using local rule-based strategy mappings. To enable high-fidelity, dynamic responses via Generative AI, set up the following optional environment variables:
+
+Linux / macOS (Bash/Zsh)
+Bash
+export GEMINI_API_KEY="your_api_key_here"
+export GEMINI_MODEL="gemini-1.5-flash"
+
+Windows (Command Prompt)
+DOS
+set GEMINI_API_KEY="your_api_key_here"
+set GEMINI_MODEL="gemini-1.5-flash"
+Windows (PowerShell)
+PowerShell
+$env:GEMINI_API_KEY="your_api_key_here"
+$env:GEMINI_MODEL="gemini-1.5-flash"
+
+🖥️ Execution Guide
+Local Interactive Dashboard (Streamlit)
+To review model output comparisons, mixed emotion metrics, and historical logs visually, spin up the development dashboard:
+
+Bash
+streamlit run streamlit_app.py
+Core Engine API Application
+To run the web-server backend API locally:
+
+Bash
+python app.py
+Serverless Deployment (Vercel)
+The repository includes a configured vercel.json and uses the serverless function handler located in api/index.py. To deploy to production on Vercel:
+
+Bash
+# Ensure you have the Vercel CLI installed globally
+npm i -g vercel
+
+# Deploy directly from the project root
+vercel --prod
+🧪 Testing Protocol
+The testing framework includes regression validation suites powered by pytest to guarantee model output consistency and logical flow mappings:
+
+Bash
+# Run tests silently with summary output
+pytest -q
+
+# Run verbose tests to inspect structural passes
+pytest -v
+📖 Example Usage
+Input
+"I've been trying to fix this bug in my system for over 4 hours, and I'm still getting a memory allocation error. I'm completely stuck."
+
+System Evaluation & Output
+────────────────────────────────────────────────────────────────────────
+[Emotion Metrics]
+• Frustrated: 🟡 78%
+• Confused:   🔵 15%
+• Confident:  ⚪ 7%
+
+[Pedagogical Recommendation]
+We detect frustration levels peaking. Try taking a step away for 5 minutes. 
+Before jumping back in, write down a structured mental model or diagram of 
+how memory flows through this isolated block. Let's tackle it in segments.
+────────────────────────────────────────────────────────────────────────
+
+🔍 Assumptions & Limitations
+Model Architectures: The system references dual processing pipelines (BiLSTM & BERT-Style). In local lightweight environments, the classifiers fallback to optimized representations if GPU hardware resources are unavailable.
+
+External Network Dependencies: If an API key is missing or invalid, the platform safely skips LLM orchestration and falls back onto local template strategies.
+
+Local CSV File I/O Lockouts: The analytics subsystem uses continuous CSV logging. If the host platform restricts multi-thread file writes under heavy concurrent load, performance degradation may occur.
+
+👥 Contributors
+Venkatesh Malakala - Lead Architect & Maintainer - @venkateshmalakala
+
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
