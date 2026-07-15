@@ -55,3 +55,102 @@ The **Emotion Detection & Learning Support Platform** serves as an empathetic mi
 |  | BiLSTM Confidence: 82.1%  | BERT-Style Confidence: 85.4%   | |
 |  +---------------------------+--------------------------------+ |
 +-----------------------------------------------------------------+
+
+
+### System Walkthrough
+An walkthrough video demonstrating the live application execution is available in the repository root:
+*   [Emotion detection system.mp4](./Emotion%20detection%20system.mp4)
+
+---
+
+## 🛠️ Technology Stack
+
+| Category | Technology / Library | Usage Profile |
+| :--- | :--- | :--- |
+| **Frontend UI** | Streamlit | Analytical dashboard interface and interactive text playgrounds |
+| **API Deployment**| Vercel / WSGI | Serverless production host wrapper (`api/index.py`) |
+| **Data Orchestration**| Pandas | Interfacing, structured metric calculation, and operational log mutations |
+| **Testing Architecture**| Pytest | Automated regression suites and validation checks |
+| **LLM Integration** | Gemini Flash API *(Optional)* | Generative orchestration for fluid, hyper-personalized support prompts |
+
+---
+
+## 🏗️ System Architecture
+
+[ User Text Input: Study Challenge ]
+                              │
+                              ▼
+                 [ Core Processing Layer ]
+          ┌───────────────────┴───────────────────┐
+          ▼                                       ▼
+[ Model Architecture A ]                [ Model Architecture B ]
+      (BiLSTM)                               (BERT-Style)
+          │                                       │
+          └───────────────────┬───────────────────┘
+                              ▼
+                 [ Combined Emotion Scoring ]
+          (Confused / Frustrated / Bored / Curious / Confident)
+                              │
+                              ▼
+            [ Pedagogical Strategy Router ]
+        ┌─────────────────────┴─────────────────────┐
+        ▼                                           ▼
+        [ Local Policy Mapping ]                   [ LLM Gen-AI Pipeline ]
+(Static Strategy Framework)                 (Gemini-1.5-Flash Engine)
+│                                           │
+└─────────────────────┬─────────────────────┘
+▼
+[ Final Supportive Output UI ]
+│
+┌─────────────┴─────────────┐
+▼                           ▼
+[ Local CSV Data Logging ]    [ Historical Analytics ]
+
+---
+
+## 📂 Folder Structure
+
+code/
+├── .gitignore               # System, cache, and log exclusion definitions
+├── README.md                # Comprehensive documentation
+├── app.py                   # Central server hook & routing configuration
+├── requirements.txt         # Core project environment declarations
+├── streamlit_app.py         # Main analytical dashboard execution script
+├── vercel.json              # Serverless platform target configuration
+├── api/
+│   └── index.py             # Vercel function edge-entrypoint implementation
+├── docs/                    # Contextual architectural definitions and design logs
+├── src/                     # Core internal application source logic
+└── tests/                   # Automated test scripts and regression configurations
+
+---
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+*   Python **3.9** or higher installed locally.
+*   `pip` package manager configured within your system environment path.
+
+### 1. Clone & Environment Set Up
+Open a terminal in your project directory and execute:
+```bash
+# Clone the repository (if not already local)
+git clone [https://github.com/venkateshmalakala/Emotion-Detection-Learning-Support-Engine.git](https://github.com/venkateshmalakala/Emotion-Detection-Learning-Support-Engine.git)
+cd Emotion-Detection-Learning-Support-Engine/code
+
+# Set up a clean isolated virtual environment
+python -m venv venv
+
+# Activate the environment
+# On macOS/Linux:
+source venv/bin/activate
+# On Windows (Command Prompt):
+venv\Scripts\activate
+# On Windows (PowerShell):
+.\venv\Scripts\Activate.ps1
+
+2. Dependency Installation
+Execute the following to download the framework packages and models required for local processing:
+
+Bash
+pip install -r requirements.txt
