@@ -4,10 +4,12 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white)](https://streamlit.io/)
 [![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Try%20it%20now-brightgreen?style=for-the-badge&logo=vercel&logoColor=white)](https://share.google/3OOGtIsIbL6wJCILG)
 
 An intelligent, emotion-aware learning support system that transforms student free-text study challenges into personalized, empathetic pedagogical guidance. By detecting core affective states, the platform delivers tailored learning strategies to optimize student engagement and academic outcomes.
 
-### 🚀 [**Live Demo →**](https://share.google/3OOGtIsIbL6wJCILG)
+> ### 🚀 **[Live Demo: Emotion Learning Support](https://share.google/3OOGtIsIbL6wJCILG)**
+> 🔗 https://share.google/3OOGtIsIbL6wJCILG
 
 ---
 
